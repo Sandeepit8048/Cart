@@ -47,12 +47,10 @@ function Product() {
             <div><b>Title:</b> {item.title}</div>
           </div>
           <div className='mt-4 gap-1 grid '>
-              {
-             cartselector.find(cartitem => cartitem.id === item.id)?
+     
+          <button className='bg-green-300 p-2 mt-4' onClick={()=>{dispatch(addItem(item))}}>Add-to-cart</button>       
             <button className='bg-green-300 p-2 mt-4' onClick={()=>{dispatch(removeItem(item))}} >Remove-item</button>
-            :
-            <button className='bg-green-300 p-2 mt-4' onClick={()=>{dispatch(addItem(item))}}>Add-to-cart</button>       
-              }
+            
 
           </div>
        </div>

@@ -3,8 +3,9 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-   items: localStorage.getItem('cart') ?JSON.parse(localStorage.getItem('cart')):[]
+   items: []
 
+     
 }
 
 
@@ -20,19 +21,17 @@ const addtocart = createSlice  ({
         addItem:(state, action )=>{
             state.items.push(action.payload)
 
-            localStorage.setItem("cart", JSON.stringify(state.items))
+            // localStorage.setItem("cart", JSON.stringify(state.items))
         }, 
         removeItem: (state, action)=>{
            const removecart = state.items.filter(item => item.id !== action.payload.id);
 
            state.items=removecart;
 
-           localStorage.setItem('cart', JSON.stringify(removeItem))
-
-
+        //    localStorage.setItem('cart', JSON.stringify(removeItem))
 
         }, 
-
+  
      
 
     }

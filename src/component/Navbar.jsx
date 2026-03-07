@@ -3,6 +3,7 @@ import Addtocart from './Addtocart'
 import Product from './Product'
 import { Link} from 'react-router-dom'
 
+
  
 function Navbar() {
     
@@ -18,6 +19,11 @@ function Navbar() {
             <li><Link to="/Product" > Product</Link></li>
             {/* <li><Link to="/Addtocart" className='bg-red-500 boarder rounded shadow' >Add-cart:{0}</Link></li> */}
            <li> <Addtocart/> </li>
+           {/* <li><Link to="/Paymentslip">PaymentShilpping</Link> </li> */}
+           {/* <li><Link to="/Shipping">Shilpping</Link> </li> */}
+           <li><Link to="/Productdetail">Cart</Link> </li>
+            
+
 
  
           </ol>
