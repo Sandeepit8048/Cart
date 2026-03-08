@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "cinema-hall",
+=======
+  "name": "newcart",
+>>>>>>> 5ad9cbf (add Moke.json, cart, cartstore)
   "private": true,
   "version": "0.0.0",
   "type": "module",
