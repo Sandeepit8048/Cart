@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { addItem, removeItem } from '../store/Slice'
+import { addcart } from '../store/Slice'
 function Product() {
     const [store , setStore] =useState([])
 
       useEffect(()=>{
          async function datafetch(){
-            const res = await fetch('https://fakestoreapi.com/products')
+            const res = await fetch('http://localhost:3000/cartItems')
              const data = await res.json();
 
              setStore(data);
@@ -20,18 +20,16 @@ function Product() {
 
         const dispatch = useDispatch();
 
-        const cartselector = useSelector((state)=> state.cart.items)
+        // const cartselector = useSelector((state)=> state.cart.addcart)
 
         
 
   return (
     <>
-
-        <Navbar/>
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 p-6">
+    <div className="sm:grid sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] sm:gap-6 p-6">
 
       {store.map((item) => (
-        <div key={item.id} className="border p-4 rounded shadow">
+        <div key={item.id} className="sm:border p-4 rounded shadow">
 
           <img 
             src={item.image} 
@@ -41,15 +39,15 @@ function Product() {
           <br />
           <hr />
           <div className="mt-4">
-            <div><b>Id:</b> {item.id}</div>
-            <div><b>Category:</b> {item.category}</div>
-            <div><b>Price:</b> ${item.price}</div>
-            <div><b>Title:</b> {item.title}</div>
+            <div><b>Id:</b> {item.product_id}</div>
+            <div><b>Category:</b> {item.product_name}</div>
+            <div><b>Price:</b> ${item.product_price}</div>
+            <div><b>Title:</b> {item.quantity}</div>
           </div>
           <div className='mt-4 gap-1 grid '>
      
-          <button className='bg-green-300 p-2 mt-4' onClick={()=>{dispatch(addItem(item))}}>Add-to-cart</button>       
-            <button className='bg-green-300 p-2 mt-4' onClick={()=>{dispatch(removeItem(item))}} >Remove-item</button>
+          <button className='bg-green-300 p-2 mt-4' onClick={()=>{dispatch(addcart(item))}}>Add-to-cart</button>       
+            {/* <button className='bg-green-300 p-2 mt-4' onClick={()=>{dispatch(removeItem(item))}} >Remove-item</button> */}
             
 
           </div>

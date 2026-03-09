@@ -12,7 +12,7 @@ function Payment() {
       <div className="p-6 text-center">
         <h2 className="text-xl font-bold">No Shipping Address Found</h2>
         <button
-          onClick={() => navigate("/Cart")}
+          onClick={() => navigate("/Paymentslip")}
           className="mt-4 bg-blue-600 text-white px-4 py-2 rounded"
         >
           Go to Shipping

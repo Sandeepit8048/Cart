@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// import {addtocart} from '../store/Slice'
+// import {addcart, addtocart} from '../store/Slice'
 
 function Productdetail({cart = []}) {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ function Productdetail({cart = []}) {
   const shipping = 50;
   const total = subtotal + shipping;
   
-//   const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 //    dispatch(addtocart)
   return ( 
     <div className="p-6 max-w-md mx-auto border rounded">
