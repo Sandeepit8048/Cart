@@ -7,12 +7,13 @@ function Payment() {
   const navigate = useNavigate();
   const address = location.state;
 
+  console.log(address)
+
   if (!address) {
     return (
       <div className="p-6 text-center">
         <h2 className="text-xl font-bold">No Shipping Address Found</h2>
         <button
-          onClick={() => navigate("/Paymentslip")}
           className="mt-4 bg-blue-600 text-white px-4 py-2 rounded"
         >
           Go to Shipping
@@ -27,7 +28,7 @@ function Payment() {
 
       <h3 className="font-semibold">Shipping Address</h3>
 
-      <p>{address.user}</p>
+      <p>{address.name}</p>
       <p>{address.email}</p>
       <p>{address.phone}</p>
       <p>{address.city}, {address.state}</p>

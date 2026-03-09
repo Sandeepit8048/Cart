@@ -42,8 +42,10 @@ function Itemcart() {
         const validationError = validate();
     if (validationError) {
       setError(validationError);
-      return;
+      return; 
+
     }
+    navigate("/Payment", {state:data})
     }
 
     return (
