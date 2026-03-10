@@ -1,49 +1,45 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { addcart } from '../store/Slice'
-import { fetchproduct } from '../store/Productslice'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
 function Cart() {
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.productslice.items);
 
-  useEffect(() => {
-    dispatch(fetchproduct());
-  }, [dispatch]);
-  
+  const selector = useSelector((state)=> state.cart.items);
   const navigate = useNavigate();
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-6">Cart Items</h2>
+    <div className="p-6">
 
-      {products.map((item) => (
-        <div
-          key={item.product_id}
-          className="border rounded-lg p-4 mb-4 flex gap-4"
-        >
+      <h2 className="text-2xl font-bold mb-6">
+        Cart Items: {selector.length}
+      </h2>
+
+      {selector.map((item)=>(
+        <div key={item.id} className="border p-4 mb-4 rounded shadow">
+
           <img
-            src={`https://${item.image}`}
+            src={item.image}
             alt={item.product_name}
-            className="w-24 h-24 object-cover"
+            className="h-24"
           />
 
-          <div>
-            <h3 className="font-semibold">{item.product_name}</h3>
-            <p>₹{item.product_price}</p>
-            <p>Qty: {item.quantity}</p>
-          </div>
+          <div><b>ID:</b> {item.product_id}</div>
+          <div><b>Name:</b> {item.product_name}</div>
+          <div><b>Price:</b> ${item.product_price}</div>
+          <div><b>Quantity:</b> {item.quantity}</div>
+
         </div>
       ))}
 
-      
-        <button className="bg-green-600 text-white px-6 py-2 rounded mt-4" onClick={()=>{navigate("/Cartproduct")}} >
-          Proceed to Checkout
-        </button>
-      
+      <button
+        className="bg-green-600 text-white px-6 py-2 rounded mt-4"
+        onClick={()=>navigate("/Cartproduct")}
+      >
+        Proceed to Checkout
+      </button>
+
     </div>
   );
 }
 
-export default Cart
+export default Cart;

@@ -1,19 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+
+export function addcount(){
+    // console.log(addcart.length)
+
+    
+} 
+
+
 const initialState={
-    value:0
+    items:[]
 }
 
+
+
 const addtocart= createSlice({
-    name:'item',
+    name:'cart',
     initialState,
 
     reducers:{
-        addcart:(state)=>{
-             state.value +=1;
-
-             
+        addcart:(state, action)=>{
+            //  state.value +=1;
+             state.items.push(action.payload)
+                      
+              
+               console.log(action.payload)
             }
         }
 })
