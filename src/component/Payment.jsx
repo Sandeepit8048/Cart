@@ -43,7 +43,7 @@ function Payment() {
       <p className="font-bold">Total: ₹1050</p>
 
       <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded">
-        Place Order
+        Place Order (all the data send in console)
       </button>
     </div>
   );
