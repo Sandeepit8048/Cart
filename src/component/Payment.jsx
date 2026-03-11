@@ -7,7 +7,7 @@ function Payment() {
   const navigate = useNavigate();
   const address = location.state;
 
-  console.log(address)
+  console.log(address);
 
   if (!address) {
     return (
@@ -15,12 +15,21 @@ function Payment() {
         <h2 className="text-xl font-bold">No Shipping Address Found</h2>
         <button
           className="mt-4 bg-blue-600 text-white px-4 py-2 rounded"
+          onClick={() => navigate("/shipping")}
         >
           Go to Shipping
         </button>
       </div>
     );
   }
+
+  const handleOrder = () => {
+    console.log("Order Data:", address);
+
+    alert("✅ Order placed successfully!");
+
+    navigate("/");
+  };
 
   return (
     <div className="p-6 max-w-md mx-auto border rounded shadow">
@@ -42,8 +51,11 @@ function Payment() {
       <p>Shipping: ₹50</p>
       <p className="font-bold">Total: ₹1050</p>
 
-      <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded" onClick={()=>navigate('/')} > 
-        Place Order (all the data send in console)
+      <button
+        className="mt-4 w-full bg-blue-600 text-white py-2 rounded"
+        onClick={handleOrder}
+      >
+        Place Order
       </button>
     </div>
   );
