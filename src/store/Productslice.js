@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchproduct = createAsyncThunk('product', async()=>{
-    const res = await fetch('http://localhost:3000/cartItems');
+    const res = await fetch('https://cart-2-0353.onrender.com/cartItems');        
     const data = await res.json();
     return data;
 })
