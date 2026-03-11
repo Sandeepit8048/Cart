@@ -42,7 +42,7 @@ function Payment() {
       <p>Shipping: ₹50</p>
       <p className="font-bold">Total: ₹1050</p>
 
-      <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded">
+      <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded" onClick={()=>navigate('/')} > 
         Place Order (all the data send in console)
       </button>
     </div>
